@@ -28,9 +28,13 @@ BlinkMacSystemsFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
   background-color: var(--bg-dark);
   color: 100vh;
-  width: 100vw;
 }
 
 .app-container {
@@ -40,13 +44,12 @@ body {
 }
 
 /* 3. SIDEBAR STYLING */
-.sidebar {
+#sidebar-container, .sidebar {
   width: 260 px;
+  min-width: 260px;
+  height: 100%;
   background-color: var(--bg-surface);
-  border-right: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem 1rem;
+  box-sizing: border-box;
 }
 
 .brand {
@@ -126,11 +129,12 @@ body {
 
 /* 4. CHAT MAIN AREA */
 .chat-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  height:100%;
+  min-width: 0;
   background-color: var(--bg-dark);
-  height:1;
-  box-sizing:border-box;
 }
 
 .chat-header {
@@ -208,7 +212,6 @@ body {
   display: flex;
   gap: 0.5rem;
   background-color: var(--bg-surface);
-  border-top: 1px solid var(--border-color);
 }
 
 .chat-form {
@@ -227,14 +230,10 @@ body {
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
-textarea {
+.input-container textarea {
   flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--text-main);
-  font-size: 0.95rem;
   resize: none;
+  height: 50px;
 }
 
 textarea::placeholder {
