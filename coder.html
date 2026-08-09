@@ -5,6 +5,72 @@
     <title>Pith - Coder Mode</title>
   </head>
   <body>
-    <!-- Your Coder Bot Interface Code Here -->
+    
+    <!-- MAIN APP WRAPPER -->
+    <div class="app-container">
+
+      <!-- 1. SIDEBAR -->
+      <aside class="sidebar">
+        <div class="brand">
+          <h2>Pith</h2>
+          <span class="badge">Coder Mode</span>
+        </div>
+
+        <nav class="nav-links">
+          <a href="index.html" class="nav-item">Home</a>
+          <a href=coder.html" class="nav-item active">Coder Bot</a>
+        </nav>
+
+        <div class="history-section">
+          <h3>Recent Chats</h3>
+          <ul class="history-list">
+            <li>HTML & CSS Setup</li>
+            <li>Fixing Grid Layout</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- 2. MAIN CHAT AREA -->
+      <main class="chat-container">
+        <header class="chat-header">
+          <h2>Pith <span class-"sub-text">// Coder Assistant</span></h2>
+        </header>
+
+        <!-- MESSAGE FEED -->
+        <div class="message-feed" id="messageFeed">
+
+          <!-- Bot Welcome Message -->
+          <div class="message bot-message">
+            <div class="avatar">P</div>
+            <div class="message-content">
+              <p>Ready to build. What are we coding today?</p>
+            </div>
+          </div>
+
+          <!-- Example User Message -->
+          <div class="message user-message">
+            <div class="avatar">You</div>
+            <div class="message-content">
+              <p>How do I align my chat input to the bottom using CSS?</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3. INPUT AREA -->
+        <footer class="input-container">
+          <form class="chat-form" id="chatForm">
+            <textarea
+              placeholder="ask Pith for code, debugging, or scaffolding..."
+              rows="1"
+              required></textarea>
+            <button type="submit" class="send-btn">Send</button>
+          </form>
+        </footer>
+
+      </main>
+
+    </div>
+
   </body>
 </html>
