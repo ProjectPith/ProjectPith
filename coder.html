@@ -5,39 +5,32 @@
     <title>Pith - Coder Mode</title>
     <link rel="stylesheet"href="style.css"
   </head>
-  <body>
-    
-    <!-- MAIN APP WRAPPER -->
-    <div class="app-container">
+<body>
+  <div class="app-container">
+    <div id="sidebar-container></div>
 
-      <!-- 1. SIDEBAR -->
-        <div id="sidebar-container>
+    <!-- 2. MAIN CHAT AREA -->
+    <main class="chat-container">
+      <header class="chat-header">
+        <h2>Pith <span class-"sub-text">// Coder Assistant</span></h2>
+      </header>
+
+      <!-- MESSAGE FEED -->
+      <div class="message-feed" id="messageFeed">
+        <div class="message pith">
+          <strong>Pith:</strong>
+          <p>Ready to help. What are we working on today?</p>
+        </div>
       </div>
 
-      <!-- 2. MAIN CHAT AREA -->
-      <main class="chat-container">
-        <header class="chat-header">
-          <h2>Pith <span class-"sub-text">// Coder Assistant</span></h2>
-        </header>
-
-        <!-- MESSAGE FEED -->
-        <div class="message-feed" id="messageFeed">
-          <div class="message bot">
-            <strong>Pith:</strong>
-            <p>Ready to help. What are we working on today?</p>
-          </div>
-        </div>
-
-        <!-- INPUT AREA AT THE BOTTOM -->
-          <form class="input-container">
-            <textarea placeholder="type your message."></textarea>
-            <button type="submit">Send</button>
-          </form>
-        </main>
-
+      <!-- INPUT AREA AT THE BOTTOM -->
+        <form class="input-container">
+          <textarea placeholder="type your message."></textarea>
+          <button type="submit">Send</button>
+        </form>
       </main>
-
     </div>
+    
     <script src="sidebar.js"</script>
     <script src="app.js"></script>
   </body>
