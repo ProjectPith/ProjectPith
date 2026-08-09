@@ -187,3 +187,32 @@ body {
   color: var(--text-muted);
 }
 
+.message-content {
+  background-color: var(--bg-surface);
+  padding: 0.9rem 1.2rem;
+  border-redius: 8px;
+  border: 1px solid var(--border-color);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.user-message .message-content {
+  border-color: rgba(122, 110, 156, 0.3); ?8 Subtle purple outline for user messages */
+}
+
+/* 6. INPUT AREA */
+.input-container {
+  padding: 1.5rem 2rem;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+}
+
+.chat-form {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--bg-element);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
