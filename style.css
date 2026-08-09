@@ -1,0 +1,10 @@
+/* Pith Style Sheet */
+
+/*COLOR VARIABLES & ROOT SETUP */
+:root {
+  /* Dark Charcoal Base (Soft, high-comfort background colors) */
+  --bg-dark: #121417;      /* Main background - deep muted charcoal */
+  --bg-surface: #1a1d24;   /* Sidebar & Cards - slightly lighter charcoal */
+  --bg-element: #242831;   /* Input fields & Hover states */
+  
+  /* Warm Muted Indigo/Purple Accents (Low vibration, soft on the eyes) */
