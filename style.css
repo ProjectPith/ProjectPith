@@ -216,3 +216,37 @@ body {
   border-radius: 8px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
+/* Smooth, soft glow on focus instead of stark outline */
+.chat-form:focus-within {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  resize: none;
+}
+
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.send-btn {
+  background-color: var(--accent-purple);
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2 ease;
+}
+
+.send-btn:hover {
+  background-color: #8b7fae; /* Soft shift upward on hover */
