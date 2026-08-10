@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const textarea = document.querySelector(".input-container textarea");
   const messageFeed = document.getElementById("messageFeed");
 
-  if (!form || !messageFeed) return;
+  if (!form || !textarea || !messageFeed) return;
 
-  chatForm.addEventListener("submit", async (e) => {
-    e.preventDefault(); 
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // STOP page reload
     
     const userText = textarea.value.trim();
     if (!userText) return;
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. Display User Message
     const userMsg = document.createElement("div");
     userMsg.className = "message user";
-    userMsg.innerHTML = `<strong?You:</strong><p>${userText}</p>`;
+    userMsg.innerHTML = `<strong>You:</strong><p>${userText}</p>`;
     messageFeed.appendChild(userMsg);
 
     textarea.value = "";
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. Display Placeholder for Pith
     const botMsg = document.createElement("div");
     botMsg.className = "message pith";
-    botMsg.innerHTML = `<strong>Pith:</strong>
+    botMsg.innerHTML = `<strong>Pith:</strong><p>Thinking...</p>`;
     messageFeed.appendChild(botMsg);
     messageFeed.scrollTop = messageFeed.scrollHeight;
     
@@ -40,11 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const data = await response.json();
-      botMessage.querySelector("p").innerText = data.response;
+      botMsg.querySelector("p").innerText = data.response;
       messageFeed.scrollTop = messageFeed.scrollHeight;
-    } catch (error) {
+    } catch (err) {
       botMsg.querySelector("p").innerText = "Error: Could not connect to local Ollama server. Make sure Ollama is running in your system tray.";
-      consol.error(err);
+      consol.error("Ollama connection error:", err);
     }
   });
 });
