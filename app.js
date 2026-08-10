@@ -1,49 +1,50 @@
-document.addEventListener("DOMContentLoaded", ()=> {
-  const chatForm = document.querySelector(".input-container") || document.querySelector("form");
-  const userInput = document.querySelector("textarea") || document.querySelector("input[type='text']");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(".input-container");
+  const textarea = document.querySelector(".input-container textarea");
   const messageFeed = document.getElementById("messagefeed");
 
-  if (!chatForm || !messageFeed) return;
+  if (!form || !messageFeed) return;
 
-  chatForm.addEventListener)"submit", async (e) => {
-    e.preventDefault();
-    const text = userInput.value.trim();
-    if (!text) return;
+  chatForm.addEventListener("submit", async (e) => {
+    e.preventDefault(); 
+    
+    const userText = textarea.value.trim();
+    if (!userText) return;
 
     // 1. Display User Message
-    appendMessage("User, text);
-    userInput.value = "";
+    const userMsg = document.createElement("div");
+    userMsg.className = "message user";
+    userMsg.innerHTML = `<strong?You:</strong><p>${userText}</p>`;
+    messageFeed.appendChild(userMsg);
+
+    textarea.value = "";
+    messageFeed.scrollTop = messageFeed.scrollHeight; //Auto-scroll down
 
     // 2. Display Placeholder for Pith
-    const botMessageDiv = appendMessage("Pith", "Thinking...");
-
+    const botMsg = document.createElement("div");
+    botMsg.className = "message pith";
+    botMsg.innerHTML = `<strong>Pith:</strong>
+    messageFeed.appendChild(botMsg);
+    messageFeed.scrollTop = messageFeed.scrollHeight;
+    
+    // 3. Send Request to Local Ollama Instance
     try {
-      // 3. Send Request to Local Ollama Instance
-      const response = await fetch(http:localhost:11434/api/generate", {
+      const response = await fetch("http://localhost:11434/api/generate", {
         method: "POST", 
-        headers: { "ContentType":"application/json" },
+        headers: { "ContentType": "application/json" },
         body: JSON.stringify({
           model: "qwen2.5-coder:7b",
-          prompt: text, 
-          system: "You are a coding assistent. Your purpose is to assist the user by giving them accurate advice and properly formatted code. Keep responses consise and helpful.",
+          prompt: userText, 
           stream: false
         })
       });
 
       const data = await response.json();
-      botMessageDiv.text = data.response;
+      botMessage.querySelector("p").innerText = data.response;
+      messageFeed.scrollTop = messageFeed.scrollHeight;
     } catch (error) {
-      botMessageDiv.textContent = "Error: Could not connect to local Ollama server. Make sure Ollama is running in your system tray.";
-      consol.error(error);
+      botMsg.querySelector("p").innerText = "Error: Could not connect to local Ollama server. Make sure Ollama is running in your system tray.";
+      consol.error(err);
     }
   });
-
-  function appendMessage(sender, text) {
-    const msg = document.createElement("div");
-    msg.className = 'message ${sender.toLowerCase()}';
-    msg.innerHTML = '<strong>${sender}:</strong> <p>${text}</p>';
-    messageFeed.appendChild(msg);
-    messageFeed.scrollTop = messageFeed.scrollHeight;
-    return msg.querySelector("p");
-  }
 });
