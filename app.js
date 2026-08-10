@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".input-container");
   const textarea = document.querySelector(".input-container textarea");
-  const messageFeed = document.getElementById("messagefeed");
+  const messageFeed = document.getElementById("messageFeed");
 
   if (!form || !messageFeed) return;
 
