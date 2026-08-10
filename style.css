@@ -23,35 +23,37 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: -apple-system
-BlinkMacSystemsFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
-  font-family: sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   background-color: var(--bg-dark);
   color: #ffffff;
 }
 
 .app-container {
   display: flex;
-  flex-direction: row !important;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
 }
 
 /* 3. SIDEBAR STYLING */
 #sidebar-container {
   width: 260px;
-  min-width: 260px;
+  flex-shrink: 0;
   height: 100%;
   background-color: var(--bg-surface);
+  border-right: 1px solid #2a2d34;
+}
+
+.sidebar {
+  padding: 1.5rem;
+  height: 100%;
 }
 
 .brand {
@@ -140,7 +142,7 @@ body {
 }
 
 .chat-header {
-  padding: 2%;
+  padding: 1rem 1.5rem;
   border-bottom: 1px solid var(--border-color);
   background-color: var(--bg-surface);
 }
@@ -168,9 +170,9 @@ body {
 }
 
 .message {
-  display: flex;
-  gap: 1rem;
-  max-width: 800px;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  max-width: 85%;
 }
 
 .avatar {
@@ -185,14 +187,14 @@ body {
   flex-shrink: 0;
 }
 
-.bot-message .avatar {
+.message.pith {
   background-color: var(--accent-muted);
-  color: #ffffff;
+  align-self: flex-start;
 }
 
 .user-message .avatar {
   background-color: var(--bg-element);
-  color: var(--text-muted);
+  align-self: flex-end;
 }
 
 .message-content {
@@ -205,18 +207,16 @@ body {
 }
 
 .user-message .message-content {
-  border-color: rgba(122, 110, 156, 0.3); ?8 Subtle purple outline for user messages */
+  border-color: rgba(122, 110, 156, 0.3); /*8 Subtle purple outline for user messages */
 }
 
 /* 6. INPUT AREA */
 .input-container {
-  flex: 1;
-  height: 3rem;
-  resize: none;
-  padding: 0.5rem;
-  color: #ffffff
+  padding: 1rem 1.5rem;
   background-color: var(--bg-surface);
-  border: 1px solid #444
+  display: flex;
+  gap: 0.75rem;
+  border-top: 1px solid #2a2d34
 }
 
 .chat-form {
@@ -237,12 +237,27 @@ body {
 
 .input-container textarea {
   flex: 1;
+  height: 48px;
   resize: none;
-  height: 50px;
+  background-color: #121417;
+  color: #ffffff;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  padding: 0.75rem;
 }
 
 textarea::placeholder {
   color: var(--text-muted);
+}
+
+.input-container button {
+  paddding:0 1.25rem;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .send-btn {
