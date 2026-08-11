@@ -1,27 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-  consol.log("--- PITH DIAGNOSTIC START ---");
-  
-  const sendBtn = document.getElementById("sendBtn");
-  const userInput = document.getElementById("userInput");
+  const form = document.querySelector(".input-container") || document.getElementById("chatForm");
+  const userInput = document.getElementById("userInput") || document.querySelector("textarea");
   const messageFeed = document.getElementById("messageFeed");
 
-  consol.log("sendBtn found:", !!sendBtn);
-  consol.log("userInput found:", !!userInput);
-  consol.log("messageFeed:", !!messageFeed);
-
-  if (!sendBtn || !userInput || !messageFeed) {
-    consol.warn("Stopping script because one or more elements above are MISSING in HTML!");
+  if (!form || !userInput || !messageFeed) {
+    consol.error("Missing core chat elements in HTML!");
     return;
   }
 
-  sendBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    consol.log("Send button CLICKED!");
+  form.addEventListener("submit", {e} => {
+    e.preventDefault(); 
+    e.stopPropagation();
 
     const text = userInput.value.trim();
     if (!text) return;
 
-    const text = userMsg = document.createElement("div");
+    const userMsg = document.createElement("div");
     userMsg.className = "message user";
     userMsg.innerHTML = `<strong>You:</strong><p>${text}</p>;
     messageFeed.appendChild(userMsg);
