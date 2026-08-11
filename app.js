@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const text = userMsg = document.createElement("div");
     userMsg.className = "message user";
-    userMsg.innerHTML = `<strong>You:</strong><p>${text}</p>
-    messageFeed.appendChild(userMsg;
+    userMsg.innerHTML = `<strong>You:</strong><p>${text}</p>;
+    messageFeed.appendChild(userMsg);
 
     userInput.value = "";
     messageFeed.scrollTop = messageFeed.scrollHeight;
