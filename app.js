@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const userInput = document.getElementById("userInput");
   const messageFeed = document.getElementById("messageFeed");
 
-  if (!sendBtn || !userInput || !messageFeed)return;
+  if (!sendBtn || !userInput || !messageFeed) return;
 
   sendBtn.addEventListener("click", (e) => {
     e.preventDefault();
