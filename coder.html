@@ -27,7 +27,7 @@
     </div>
 
     <!-- INPUT AREA AT THE BOTTOM -->
-    <form class="input-container" id="chatForm" onsubmit="return false;">
+    <form class="input-container" id="chatForm">
       <textarea id="userInput" name="userInput" placeholder="Type your message."></textarea>
       <button type="submit" id="sendBtn">Send</button>
     </form>
@@ -36,9 +36,9 @@
     
   <script src="sidebar.js"></script>
   <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("chatForm") || document.querySelector(".input-container");
-      const userInput = document.getElementById("userInput") || document.querySelector("textarea");
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("chatForm");
+      const userInput = document.getElementById("userInput");
       const messageFeed = document.getElementById("messageFeed");
 
       if (!form || !userInput || !messageFeed) return;
@@ -51,7 +51,7 @@
 
         const userMsg = document.createElement("div");
         userMsg.className = "message user";
-        userMsg.innerHTML = `<strong>You:</strong> <p>${text}</p>;
+        userMsg.innerHTML = `<strong>You:</strong><p>${text}</p>`;
 
         messageFeed.appendChild(userMsg);
         userInput.value = "";
