@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!form || !userInput || !messageFeed) return;
 
-  form.addEventListener("submit", {e} => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault(); 
 
     const text = userInput.value.trim();
